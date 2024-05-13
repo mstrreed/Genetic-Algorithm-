@@ -1,0 +1,43 @@
+Genetic Algorithms
+Inspired by nature’s process of eliminating things that don’t work, and progressing with things that work.
+
+We work with a population of individuals — each individual is basically a solution to the problem. We pick the individuals who seem to be better solutions, and use those to create a new population. And repeat this process.
+
+Selection Processes
+Evaluating solutions or individuals in your population
+Using a selection strategy to select the ones you want to keep
+Evaluating
+Creating some function that takes in the individual or solution as input, and outputs a quantitative estimate — or a fitness score — a number indicating how good it is a solution.
+NOTE: Choose the evaluation function carefully — a wrong choice would lead you to a wrong kind of solution, and you’ll end up thinking the whole algorithm sucks. A wrong evaluation function won’t throw an error, it will just take you to a different kind of solution. Make sure a high scoring solution is always preferable over a low scoring solution.
+
+Selection Strategies
+Roulette Wheel selection
+Every solution is assigned a probability.
+The probability is based on the fitness score — the more fit the solution, the higher the probability.
+The probabilities of getting picked as a fit solution is proportional to the fitness — double fitness means double probability.
+NOTE: There is a rank selection method which is similar, it assigns probabilities, but not proportional to the fitness. It gives each solution a ranking based on their fitness and then assigns probabilities. So double the fitness does not mean double the chance of getting picked. In some cases, this helps maintain diversity.
+
+Tournament Selection
+Pick n random solutions from the population.
+Select the best of that subset (those n solutions) as a fit solution. Or a fit parent for crossover.
+Repeat K times to get K parents.
+NOTE: There are some other methods (less important) like Steady state method and elitist method — where some individuals from the population just live on as it is to the next generation. Why change it if it is good? Right? Just replacing the medium or poor performers with variants of the good solutions.
+
+Crossover strategies
+For discrete arrays
+
+One point crossover
+Two point and k-point crossover
+Uniform crossover
+Each element in the offspring is picked from parent A or parent B with equal probability.
+NOTE: For simplicity, I’m skipping real value genome crossover and how to crossover for permutations (like in the traveling salesman problem). You can find it with a google search if you’re interested, but it is very problem specific and hard to remember, so you can skip it. The general idea is to take some part of the permutation from one parent, and the remaining cities or values from the other parent and use its ordering to place the elements.
+
+Mutation Strategies
+Bit Flips: Randomly flipping bits in the genetic representation of a solution.
+For Permutations: Implementing swaps or inversions to introduce variability.
+Link to learn more about strategies
+
+Industry Use and Interesting Case Studies
+Automotive Design: Ford Motor Company Ford Motor Company has applied genetic algorithms to streamline the design and production processes of its vehicles. In one notable application, Ford used genetic algorithms to optimize the design of car components for durability, manufacturing ease, and cost efficiency. This optimization involved evaluating numerous design variables, including material choices and geometrical shapes, to identify the best combinations that meet safety and performance standards while reducing production costs. The use of genetic algorithms enabled Ford to simulate thousands of potential designs rapidly and identify the most optimal ones before creating physical prototypes, significantly speeding up the development process and reducing expenses.
+
+Network Design: Akamai Technologies Akamai Technologies uses genetic algorithms to manage the flow of data across its large network of servers to deliver content efficiently. These algorithms help find the best routes for data to travel, considering how busy the network is, how much load each server has, and how far the data has to go. This is important for making sure there is less delay and a better experience for users, including big media companies and businesses that need fast and reliable internet. By constantly updating the routes that data takes, Akamai can manage sudden increases in internet traffic and keep its services running smoothly.
